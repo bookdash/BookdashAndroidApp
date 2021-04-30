@@ -103,7 +103,7 @@ class BookInfoPresenter extends BasePresenter<BookInfoContract.View> implements 
                             BookPages bookPages = downloadProgressItem.getBookPages();
                             if (bookPages == null) {
                                 getView().showSnackBarMessage(R.string.failed_to_open_book);
-                                FirebaseCrashlytics.getInstance().recordException(new Exception("Book pages null after completed download."));
+                                FirebaseCrashlytics.getInstance().recordException(new Exception("Book pages null after completed download.")); // TODO Remove in next release if book downloading bug is fixed.
                                 analytics.trackDownloadBookFailed(bookInfo, "failed_to_open_book");
                                 return;
                             }

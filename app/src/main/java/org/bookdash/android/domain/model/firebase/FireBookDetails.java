@@ -137,7 +137,18 @@ public class FireBookDetails implements Parcelable {
             if (files == null || files.length == 0 || files[0] == null) {
                 return null;
             }
-            return files[0].getAbsoluteFile().toString();
+            for (File aFile : files) {
+                if (!aFile.getAbsoluteFile().toString().contains("MACOSX")) {
+                    // This is a workaround bugfix (no other solution possible). Previously the app
+                    // assumed that a book's root folder only contains one folder (containing the
+                    // book images and .json file). However, in the CMS content conversion process
+                    // where PDF books are converted into .json and images so that the app can
+                    // consume it, mac inserted a "__MACOSX" folder in certain cases. This causes
+                    // this method to return the MACOSX folder as the book folder on certain devices
+                    // as file.listFiles() does not guarantee any specific ordering.
+                    return aFile.getAbsoluteFile().toString();
+                }
+            }
         }
         return null;
     }

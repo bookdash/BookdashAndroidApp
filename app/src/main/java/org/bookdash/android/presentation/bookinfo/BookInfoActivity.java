@@ -1,6 +1,7 @@
 package org.bookdash.android.presentation.bookinfo;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
@@ -470,11 +471,15 @@ public class BookInfoActivity extends BaseAppCompatActivity implements BookInfoC
 
     @Override
     public void sendShareEvent(String bookTitle) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.sharing_book_title, bookTitle));
-        sendIntent.setType("text/plain");
-        startActivity(sendIntent);
+        try {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.sharing_book_title, bookTitle));
+            sendIntent.setType("text/plain");
+            startActivity(sendIntent);
+        } catch (ActivityNotFoundException anfe) {
+            showSnackBarMessage(R.string.share_book_error_no_apps_found);
+        }
     }
 
     @Override

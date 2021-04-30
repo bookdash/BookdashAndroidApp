@@ -77,6 +77,7 @@
     <string name="sharing_book_title">I have just read \"%s\". Download Book Dash now and read it for free! http://play.google.com/store/apps/details?id=org.bookdash.android</string>
     <string name="invitation_title">Download Book Dash</string>
     <string name="invite_error_no_apps_found">Unfortunately no apps were found to invite your friends with.</string>
+    <string name="share_book_error_no_apps_found">Unfortunately no apps were found that can share this book with your friends.</string>
     <string name="invite_using">Choose an app to invite with</string>
     <string name="invitation_subject">Install the Book Dash app for free books</string>
     <string name="invitation_message">I think you\'ll love the Book Dash app for free children\'s books.\n\nYou can get it here:\nhttps://play.google.com/store/apps/details?id=org.bookdash.android</string>

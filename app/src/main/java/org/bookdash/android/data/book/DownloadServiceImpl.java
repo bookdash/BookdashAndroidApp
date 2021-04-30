@@ -100,11 +100,11 @@ public class DownloadServiceImpl implements DownloadService {
                 Log.e(TAG, "EX: ", e);
             }
 
-            FirebaseCrashlytics.getInstance().log("File path: " + fileName);
+            FirebaseCrashlytics.getInstance().log("File path: " + fileName); // TODO Remove in next release if book downloading bug is fixed.
             FirebaseCrashlytics.getInstance().recordException(e);
             Log.e(TAG, "Ex:" + e.getMessage(), e);
         } catch (Exception e) {
-            FirebaseCrashlytics.getInstance().log("File path: " + fileName);
+            FirebaseCrashlytics.getInstance().log("File path: " + fileName); // TODO Remove in next release if book downloading bug is fixed.
             FirebaseCrashlytics.getInstance().recordException(e);
             Log.e(TAG, "error parsing book: " + fileName, e);
         }
